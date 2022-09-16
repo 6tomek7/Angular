@@ -1,16 +1,17 @@
 <h3>
     <button type="button" class="btn btn-primary btn-sm" title="Add this movie to list movies to watch" (click)="addToWatchlist()" >Add to watch</button>
 </h3> 
-<ngb-toast
-*ngIf="show"
-header="Request for access"
-[autohide]="false"
->
-Angular is asking for your permission to read and write data on your behalf. 
-This is necessary if you want to do things like maintain your lists or rate movies outside of TMDB.
-<a target="_blank" href="{{permission}}{{tokenNumber}}?redirect_to={{actuallyUrl}}/approved">
-<button class="btn btn-primary" >Approve</button></a>
-</ngb-toast>
+
+<div ngbDropdown class="d-inline-block">
+    <button type="button" class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>Rate movie</button>
+        <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+            <div class="d-flex justify-content-between">  
+                <button (click)="addClick()" class="btn btn-outline-warning  btn-sm">+</button>
+                <button class="btn btn-secondary"><b>{{this.rate}}</b></button>
+                <button (click)="subtractClick()" class="btn btn-outline-info">-</button>
+            </div>
+    <button ngbDropdownItem (click)="rateMovie(this.rate)">Save</button>
+</div>
 
 <div *ngIf="data$ | async as data">
     <div class="container">
@@ -42,6 +43,5 @@ This is necessary if you want to do things like maintain your lists or rate movi
 </section>
 
 <app-recommendations-movies [parentId]="id"></app-recommendations-movies>
-<app-toasts aria-live="polite" aria-atomic="true"></app-toasts>
 
 

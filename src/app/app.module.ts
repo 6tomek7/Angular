@@ -10,6 +10,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { RecommendationsMoviesComponent } from './recommendations-movies/recommendations-movies.component';
 import { NgToastModule } from 'ng-angular-popup';
 import { ToastComponent } from './toast/toast.component';
+import { ModalComponent } from './modal/modal.component';
+import { LoginWindowComponent } from './login-window/login-window.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +19,9 @@ import { ToastComponent } from './toast/toast.component';
     RoutingComponents,
     TrnsformTimePipe,
     RecommendationsMoviesComponent,
-    ToastComponent
+    ToastComponent,
+    ModalComponent,
+    LoginWindowComponent
   ],
   imports: [
     BrowserModule,
