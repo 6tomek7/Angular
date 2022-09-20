@@ -1,4 +1,7 @@
-import { Component, isDevMode } from '@angular/core';
+import { MoviesService } from './movies.service';
+import { Component, isDevMode, OnInit } from '@angular/core';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { LoginWindowComponent } from './login-window/login-window.component';
 
 @Component({
   selector: 'app-root',
@@ -6,11 +9,21 @@ import { Component, isDevMode } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 
-export class AppComponent {
+export class AppComponent implements OnInit{
+  constructor(private modalService: NgbModal,
+    public moviesService: MoviesService){if (isDevMode()) {
+    console.log('Development!');
+  } else {
+    console.log('Production!');
+  }}
   
-    constructor(){if (isDevMode()) {
-      console.log('Development!');
-    } else {
-      console.log('Production!');
-    }}
+  ngOnInit(): void {
+    if(window.location.search === ""){
+      this.moviesService.getToken()
+    }
+  }  
+  
+  openModal() {
+    const modalRef = this.modalService.open(LoginWindowComponent);
+  }
 }

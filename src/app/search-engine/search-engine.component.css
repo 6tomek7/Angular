@@ -1,0 +1,8 @@
+.body{
+    background-color: rgb(240,242,245);
+    border-top: 2px groove;
+    border-color: black;
+}
+.search-engine{
+    display: flex;
+}

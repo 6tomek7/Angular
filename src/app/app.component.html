@@ -1,18 +1,18 @@
 <div class="top-bar">
-  <h1>Home page</h1>
-  <button type="button" class="btn btn-outline-success" title="click here" routerLink="movies-list">Watch list movies</button>
-</div>
-<div class="container">
-  <div class="categories p-2">
-    <h3>Categories:</h3>
-    <ul>
-    <li><button type="button" class="btn btn-outline-success" routerLink="popular-movies">Most popular movies</button></li>
-    <li><button type="button" class="btn btn-outline-success" routerLink="search-engine">Movie search engine</button></li>
-  </ul>
+  <h1 routerLink="">Home page</h1>
+    <div *ngFor="let userName of moviesService.userName">
+      <h3>{{userName}}</h3>
+    </div>
+  <div class="buttons">
+    <button type="button" class="btn btn-outline-success" (click)="openModal()">Login</button>
+    <button type="button" class="btn btn-outline-success" title="click here" routerLink="movies-list">Watch list movies</button>
   </div>
-  <div class="contents p-2">
+</div>
+
+<div>
     <router-outlet></router-outlet>
-  </div>
 </div>
+
+<app-toasts aria-live="polite" aria-atomic="true"></app-toasts>
 
 

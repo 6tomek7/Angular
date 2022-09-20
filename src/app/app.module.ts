@@ -10,6 +10,19 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { RecommendationsMoviesComponent } from './recommendations-movies/recommendations-movies.component';
 import { NgToastModule } from 'ng-angular-popup';
 import { ToastComponent } from './toast/toast.component';
+import { ModalComponent } from './modal/modal.component';
+import { LoginWindowComponent } from './login-window/login-window.component';
+import { PopularOnTvComponent } from './popular-on-tv/popular-on-tv.component';
+import { PopulaActorsComponent } from './popula-actors/popula-actors.component';
+import { SupportForPopularComponent } from './support-for-popular/support-for-popular.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { SearchResultsComponent } from './search-results/search-results.component';
+import { SearchCompaniesComponent } from './search-companies/search-companies.component';
+import { SearchMoviesComponent } from './search-movies/search-movies.component';
+import { SearchActorsComponent } from './search-actors/search-actors.component';
+import { SearchCollectionsComponent } from './search-collections/search-collections.component';
+import { SearchKeywordsComponent } from './search-keywords/search-keywords.component';
+import { SearchTvShowsComponent } from './search-tv-shows/search-tv-shows.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +30,14 @@ import { ToastComponent } from './toast/toast.component';
     RoutingComponents,
     TrnsformTimePipe,
     RecommendationsMoviesComponent,
-    ToastComponent
+    ToastComponent,
+    ModalComponent,
+    LoginWindowComponent,
+    PopularOnTvComponent,
+    PopulaActorsComponent,
+    SupportForPopularComponent,
+    DashboardComponent,
+    SearchResultsComponent
   ],
   imports: [
     BrowserModule,

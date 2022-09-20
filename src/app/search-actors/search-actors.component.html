@@ -1,0 +1,10 @@
+<div *ngIf="resultsActivator">
+    <div *ngFor="let actor of actors">
+        <ul>
+            <li>
+                <a routerLink="/person/{{actor.id}}"><h3>Title: {{actor.name}}</h3></a>
+                <img  src="{{urlImage}}{{actor.profile_path}}">
+            </li>
+        </ul>
+    </div>
+</div>

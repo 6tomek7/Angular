@@ -4,12 +4,6 @@
     justify-content: space-between;
 }
 
-.container {
-    display: flex;
-}
-
-.categories {
-    border-right: 1px solid black;
-    min-height: 700px;
-    min-width: 180px;
+h1 {
+    cursor: pointer;
 }

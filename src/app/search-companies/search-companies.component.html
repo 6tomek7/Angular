@@ -1,0 +1,10 @@
+<div *ngIf="resultsActivator">
+    <div *ngFor="let companie of companies$">
+        <ul>
+            <li>
+                <h3>Title: {{companie.name}}</h3>
+                <img  src="{{urlImage}}{{companie.logo_path}}">
+            </li>
+        </ul>
+    </div>
+</div>
