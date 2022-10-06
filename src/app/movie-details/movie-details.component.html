@@ -1,47 +1,58 @@
-<h3>
-    <button type="button" class="btn btn-primary btn-sm" title="Add this movie to list movies to watch" (click)="addToWatchlist()" >Add to watch</button>
-</h3> 
-<ngb-toast
-*ngIf="show"
-header="Request for access"
-[autohide]="false"
->
-Angular is asking for your permission to read and write data on your behalf. 
-This is necessary if you want to do things like maintain your lists or rate movies outside of TMDB.
-<a target="_blank" href="{{permission}}{{tokenNumber}}?redirect_to={{actuallyUrl}}/approved">
-<button class="btn btn-primary" >Approve</button></a>
-</ngb-toast>
 
-<div *ngIf="data$ | async as data">
-    <div class="container">
-        <div class="left-column">
+<div class="movie-details p-3" *ngIf="data$ | async as data">
+    <div class="details">
+        <div class="left-column p-2">
             <img  src="{{urlImage}}{{data.poster_path}}">
         </div>
         <div class="right-column">
-            <p><b>Runtime:</b> {{data.runtime | trnsformTime}}</p>
-            <p><b>Date:</b> {{data.release_date}}</p>
-            <p><b>Genres: </b>
-                <span *ngFor="let genre of data.genres">
-                    <a routerLink="/genre/{{genre.id}}/{{genre.name}}">{{genre.name}},</a>
-                </span>
-            </p>
-            <p><b>Overview:</b>{{data.overview}}</p>
+            <div class="functionality d-flex mb-2">
+                    <div class="star" ngbDropdown #myDrop="ngbDropdown" title="Rate it">
+                        <svg  (focus)="myDrop.open()" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-star-fill" viewBox="0 0 16 16">
+                            <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+                        </svg>
+                        <div ngbDropdownMenu aria-labelledby="dropdownManual">
+                            <ngb-rating class="rate" [(rate)]="rate" (rateChange)="rateMovie(rate)">
+                            </ngb-rating>
+                        </div>
+                    </div>
+                <div class="watchlist ms-3" title="Add to watchlist">
+                    <svg  (click)="addToWatchlist()" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-card-checklist" viewBox="0 0 16 16">
+                        <path d="M14.5 3a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-13a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h13zm-13-1A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-13z"/>
+                        <path d="M7 5.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5zm-1.496-.854a.5.5 0 0 1 0 .708l-1.5 1.5a.5.5 0 0 1-.708 0l-.5-.5a.5.5 0 1 1 .708-.708l.146.147 1.146-1.147a.5.5 0 0 1 .708 0zM7 9.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5zm-1.496-.854a.5.5 0 0 1 0 .708l-1.5 1.5a.5.5 0 0 1-.708 0l-.5-.5a.5.5 0 0 1 .708-.708l.146.147 1.146-1.147a.5.5 0 0 1 .708 0z"/>
+                    </svg>
+                </div>   
+            </div>
+            <div class="description">
+                <p><b>Runtime:</b> {{data.runtime | trnsformTime}}</p>
+                <p><b>Date:</b> {{data.release_date}}</p>
+                <p><b>Genres: </b>
+                    <span *ngFor="let genre of data.genres">
+                        <a routerLink="/genre/{{genre.id}}/{{genre.name}}">{{genre.name}},</a>
+                    </span>
+                </p>
+                <p><b>Overview:</b>{{data.overview}}</p>
+            </div>
         </div>
     </div>
 </div>
 
-<h3 class="mt-3">Cast</h3>
-<section class="persons">
+<h3 class="mt-1 ms-4">Cast</h3>
+<div class="persons me-4 ms-4">
     <div *ngFor="let person of persons$ | async">
-        <ul>
-            <li>
-                <a routerLink="/person/{{person.id}}">{{person.name}}</a>
-            </li>
+        <ul>       
+            <a routerLink="/details/person/{{person.id}}">
+                <img src="{{urlImage200}}{{person.profile_path}}">
+                <b>{{person.name}}</b>
+            </a>
         </ul>
      </div>
-</section>
+</div>
+<div class="content me-4 ms-4"> 
+    <div>
+        <app-recommendations-movies [parentId]="id"></app-recommendations-movies>
+    </div>
+</div>
 
-<app-recommendations-movies [parentId]="id"></app-recommendations-movies>
-<app-toasts aria-live="polite" aria-atomic="true"></app-toasts>
+
 
 

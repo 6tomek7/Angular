@@ -1,0 +1,13 @@
+.popular-on-tv {
+    display: flex;
+    overflow-y: auto;
+}
+
+a {
+    color: black;
+    text-decoration: none;
+}
+
+a:hover {
+    color: darkgreen;
+}

@@ -1,0 +1,25 @@
+<div class="header d-flex ms-4"><h3>What's Popular:</h3>
+  <div class="btn-group shadow-0 ms-2" role="group" aria-label="Basic example">
+      <button type="button" class="btn btn-outline-secondary" data-mdb-color="dark" (click)="viewMovies()">
+        Movies
+      </button>
+      <button type="button" class="btn btn-outline-secondary" data-mdb-color="dark" (click)="viewOnTv()">
+        On tv
+      </button>
+      <button type="button" class="btn btn-outline-secondary" data-mdb-color="dark" (click)="viewActors()">
+        Actors  
+      </button>
+  </div>
+</div>
+
+<div class="content me-4 ms-4"> 
+    <div *ngIf="showMovies">  
+         <app-popular-movies></app-popular-movies>
+    </div>
+    <div *ngIf="showOnTv">
+        <app-popular-on-tv></app-popular-on-tv>
+    </div>
+    <div *ngIf="showActors">
+        <app-popula-actors></app-popula-actors>
+    </div>
+</div>

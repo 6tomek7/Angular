@@ -1,13 +1,8 @@
-<h1>Popular movies</h1>
-
-<div class="mt-3" *ngIf="data$ | async as data">
-    <div *ngFor="let result of data.results">
-        <ul>
-            <li>
-                <a routerLink="/details/{{result.id}}"><h3>Title: {{result.title}}</h3></a>
-                <p>Release date: {{result.release_date}}</p>
-                <img  src="{{urlImage}}{{result.poster_path}}">
-            </li>
-        </ul>
+<div class="popular-movies mt-3" *ngIf="data$ | async as data">
+    <div class="container" *ngFor="let result of data.results">    
+        <img  src="{{urlImage}}{{result.poster_path}}">
+        <div class="title ms-1">
+            <a routerLink="/details/movies/{{result.id}}"><b>{{result.title}}</b></a> 
+        </div>
     </div>
 </div>

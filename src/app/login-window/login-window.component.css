@@ -1,0 +1,8 @@
+button, input {
+    padding: 3px 16px;
+    width: 332px;
+}
+
+input {
+    border-radius: 5px;
+}

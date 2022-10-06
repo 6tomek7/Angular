@@ -1,0 +1,37 @@
+<div class="modal-header d-flex flex-column align-items-center">
+    <div class="login-table">
+        <h4>Login to your account. </h4>
+        <div class="nick mt-3">
+            <div>
+                <input placeholder="Your nick" #nick>
+            </div>  
+        </div>
+        <div type="text" class="password mt-3">
+            <div>
+                <input type="password" placeholder="Your password" #password>
+            </div>   
+            <button class="btn btn-primary mt-3 mb-2" (click)="login(nick.value, password.value)">Log in</button>
+        </div>
+    </div>
+</div>
+<div class="modal-body d-flex flex-column align-items-center">
+    <div *ngIf="!isLoggedinFb">
+        <button (click)="loginWithFacebook()" class="btn btn-primary m-2">Login in with Facebook</button>
+    </div>
+    <div *ngIf="isLoggedinFb">
+        <a routerLink="/profile">
+            <button class="btn btn-success m-2" (click)="activeModal.close()">You are logged with Facebook</button>
+        </a>
+    </div>
+    <div *ngIf="!isLoggedInGoogle()">
+        <button (click)="loginWithGoogle()" class="btn btn-primary m-2">Login in with Google</button>
+    </div>
+    <div *ngIf="isLoggedInGoogle()">
+        <a routerLink="/profile">
+            <button class="btn btn-success m-2" (click)="activeModal.close()">You are logged with Google</button>
+        </a>
+    </div>
+</div>
+<div class="modal-footer d-flex flex-column">
+  <button type="button" class="btn btn-outline-dark" (click)="activeModal.close('Close click')">Close</button>
+</div>

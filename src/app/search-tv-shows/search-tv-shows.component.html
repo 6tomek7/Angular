@@ -1,0 +1,10 @@
+<div *ngIf="resultsActivator">
+    <div *ngFor="let tvShow of tvShows$">
+        <ul>
+            <li>
+                <h3>Title: {{tvShow.name}}</h3>
+                <img  src="{{urlImage}}{{tvShow.poster_path}}">
+            </li>
+        </ul>
+    </div>
+</div>

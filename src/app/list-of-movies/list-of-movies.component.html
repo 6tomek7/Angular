@@ -1,5 +1,5 @@
 <h3>Your list of movies to watch</h3>
 <p><b>{{info}}</b></p>
 <div class="watchlist" *ngFor="let watchlistElement of watchlistMovies$ | async">
-    <a routerLink="/details/{{watchlistElement.id}}">Title: {{watchlistElement.title}}</a>
+    <a routerLink="/details/movies/{{watchlistElement.id}}">Title: {{watchlistElement.title}}</a>
 </div>

@@ -1,0 +1,17 @@
+.body{
+    background-color: rgb(240,242,245);
+    border-top: 2px groove;
+    border-color: black;
+    justify-content: center
+}
+.search-engine{
+    display: flex;
+}
+
+input {
+    width: 90%;
+    border-radius: 6px;
+    border: 1px solid rgb(25,135,84);
+    padding: 0px 10px;
+    color: rgb(113, 110, 110);
+}

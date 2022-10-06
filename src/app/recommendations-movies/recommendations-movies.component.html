@@ -1,9 +1,9 @@
 <h3 class="mt-3">Recommendations</h3>
-<div class="container" *ngIf="data$ | async as data">
-    <div *ngFor="let result of data.results">
-        <a routerLink="/details/{{result.id}}">
+<div class="movies" *ngIf="data$ | async as data">
+    <div class="container" *ngFor="let result of data.results">
+        <a routerLink="/details/movies/{{result.id}}">
             <img src="{{urlImage}}{{result.poster_path}}">
-            {{result.title}}
+            <b>{{result.title}}</b>
         </a>
     </div>
 </div>

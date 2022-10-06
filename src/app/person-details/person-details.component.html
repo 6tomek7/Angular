@@ -2,9 +2,14 @@
     <h3>{{person.name}}</h3>
     <div class="container">
         <div class="left-column">
-            <p><img src="{{urlImage}}{{person.profile_path}}"></p>
-         </div>
-         <div class="right-column">  
+            <div *ngIf="person.profile_path">
+                <img  src="{{urlImage}}{{person.profile_path}}">
+            </div>
+            <div *ngIf="!person.profile_path">
+                <img src="../assets/Profile.png">
+            </div>
+        </div>
+        <div class="right-column">  
             <p>Date of birth: {{person.birthday}}</p>
             <p>Place of birth: {{person.place_of_birth}}</p>
             <p>{{person.biography}}</p>

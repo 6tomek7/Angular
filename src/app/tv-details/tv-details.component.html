@@ -1,0 +1,12 @@
+<div *ngIf="tv$ | async as tv">
+    <h3>{{tv.original_name}}</h3>
+    <div class="container">
+        <div class="left-column">
+            <p><img src="{{urlImage}}{{tv.poster_path}}"></p>
+         </div>
+         <div class="right-column">  
+            <p>{{tv.overview}}</p>
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,10 @@
+<div *ngIf="isLoggedInGoogle()">
+  <h2 class="text-center mb-4">Login with Google in Angular</h2>
+  <div class="container">Hi and welcome!</div>
+  <div class="container">Name: {{ userInfo?.info?.name }}</div>
+  <div class="container"><img src="{{ userInfo?.info?.picture }}"></div>
+  <div class="container">Email: {{ userInfo?.info?.email }} 
+    <p>Email_verified: {{userInfo?.info?.email_verified}}</p>
+  </div>
+  <button class="btn btn-outline-success" (click)="signOutGoogle()">Logout google</button>
+</div>

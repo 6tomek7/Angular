@@ -1,0 +1,10 @@
+<div *ngIf="resultsActivator">
+    <div *ngFor="let collection of collections$">
+        <ul>
+            <li>
+                <h3>Title: {{collection.name}}</h3>
+                <img  src="{{urlImage}}{{collection.poster_path}}">
+            </li>
+        </ul>
+    </div>
+</div>

@@ -1,0 +1,11 @@
+<div *ngIf="resultsActivator">
+    <div *ngFor="let movie of moviesResult$">
+        <ul>
+            <li>
+                <a routerLink="/details/movies/{{movie.id}}"><h3>Title: {{movie.title}}</h3></a>
+                 <p>Release date: {{movie.release_date}}</p>
+                <img  src="{{urlImage}}{{movie.poster_path}}">
+            </li>
+        </ul>
+    </div>
+</div>

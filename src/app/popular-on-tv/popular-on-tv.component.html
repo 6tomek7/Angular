@@ -1,0 +1,8 @@
+<div class="popular-on-tv mt-3" *ngIf="popularOnTv$ | async as popularOnTv">
+    <div class="container" *ngFor="let result of popularOnTv.results">    
+        <img  src="{{urlImage}}{{result.poster_path}}">
+        <div class="title ms-1">
+            <a routerLink="/details/tv/{{result.id}}"><b>{{result.name}}</b></a> 
+        </div>
+    </div>
+</div>

@@ -1,0 +1,8 @@
+<div class="popular-actors mt-3" *ngIf="popularActors$ | async as popularActor">
+    <div class="container" *ngFor="let result of popularActor.results">    
+        <img  src="{{urlImage}}{{result.profile_path}}">
+        <div class="title ms-1">
+            <a routerLink="/details/person/{{result.id}}"><b>{{result.name}}</b></a> 
+        </div>
+    </div>
+</div>

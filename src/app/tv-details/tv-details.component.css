@@ -1,0 +1,7 @@
+.container {
+    display: flex;
+}
+
+.right-column {
+    padding: 1rem;
+}

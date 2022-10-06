@@ -1,4 +1,4 @@
-.container {
+.details {
     display: flex;
 }
 
@@ -8,6 +8,30 @@
 
 .persons {
     display: flex;
-    width: 1000px;
     overflow-y: auto;
+}
+
+.star, .watchlist {
+    color: rgb(181, 175, 166);
+    font-size: xx-large;
+    cursor: pointer;
+}
+
+.rate {
+    color: rgb(233, 215, 53);
+    font-size: xx-large;
+    cursor: pointer;
+}
+
+.star :hover, .rate, .watchlist :hover {
+    color: rgb(233, 215, 53);
+}
+
+a {
+    color: black;
+    text-decoration: none;
+}
+
+a:hover {
+    color: darkgreen;
 }

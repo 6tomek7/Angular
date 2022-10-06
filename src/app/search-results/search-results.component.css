@@ -1,0 +1,12 @@
+.categories {
+    width: 250px;
+    height: 500px;
+    box-sizing: border-box; 
+    border: 3px solid black;
+    border-radius: 4px;
+}
+
+.categories-list {
+    justify-content: space-between;
+    display: inline-flex;
+}

@@ -4,12 +4,10 @@
     justify-content: space-between;
 }
 
-.container {
-    display: flex;
+.dashboard {
+    cursor: pointer;
 }
 
-.categories {
-    border-right: 1px solid black;
-    min-height: 700px;
-    min-width: 180px;
+.buttons {
+    display: flex;
 }
